@@ -5,11 +5,12 @@ class TreeNode:
         self.right = right
 
 
-p = TreeNode(1)
-p.left = TreeNode(2)
-p.right = TreeNode(1)
+p = TreeNode(3)
+p.left = TreeNode(1)
+p.right = TreeNode(5)
 
 
 q = TreeNode(1)
 q.left = TreeNode(1)
 q.right = TreeNode(2)
+
