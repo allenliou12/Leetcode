@@ -13,4 +13,7 @@ p.right = TreeNode(5)
 q = TreeNode(1)
 q.left = TreeNode(1)
 q.right = TreeNode(2)
+q.right.right = TreeNode(3)
+q.left.left = TreeNode(3)
+q.right.right.left = TreeNode(5)
 
