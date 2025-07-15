@@ -21,17 +21,16 @@ nums = [1, 2, 3]
 # If len= 1" subset = [[],[n1]]
 # if len >1:
 # for each element:
-# return that element as a subset,
+# 1st return that element
+# then return an array of that element and its next element
+# Then return an array of that element and its last next element +1, all the way until the end of the array, then remove the 1st element in the array
 
 
 class Solution:
     def subsets(self, nums):
         ss = []
-        if len(nums) == 1:
-            ss += []
-            ss += [nums]
-        return ss
 
-
-a = Solution()
-print(a.subsets([1]))
+        def bt(start, path):
+            for i in range(start, path):
+                pass
+                # Leave until another day
