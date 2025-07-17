@@ -33,3 +33,34 @@ q.right = TreeNode(2)
 q.right.right = TreeNode(3)
 q.left.left = TreeNode(7)
 q.right.right.left = TreeNode(5)
+
+# Ok so for each level of nodes, I need to compare their values, so I need to return maybe something like the max(level_nodes)?
+
+
+class Solution:
+    def largestValues(self, root):
+        if not root:
+            return []
+        queue = deque([root])
+        res = []
+
+        while queue:
+            level_size = len(queue)
+            level_node = []
+
+            for i in range(level_size):
+                node = queue.popleft()
+                level_node.append(node.val)
+
+                if node.left != None:
+                    queue.append(node.left)
+                if node.right != None:
+                    queue.append(node.right)
+
+            res.append(max(level_node))
+
+        return res
+
+
+a = Solution()
+print(a.largestValues(p))
