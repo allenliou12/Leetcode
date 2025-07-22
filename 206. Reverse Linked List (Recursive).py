@@ -26,23 +26,26 @@ class ListNode:
 
 node1 = ListNode(1)
 node2 = ListNode(2)
+node3 = ListNode(3)
 
 
 node1.next = node2
+node2.next = node3
 
 
 class Solution:
     def reverseList(self, head):
         current_node = head
-        prev = None
-        while current_node is not None:
-            next = current_node.next
-            current_node.next = prev
-            prev = current_node
-            current_node = next
-        return prev
+        # Base case if we are at the end of the LL, just return the current node
+        if head is None or current_node.next is None:
+            return current_node
+
+        new_head = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+
+        return new_head
 
 
-# First intuition is to loop through the entire LL, until the end of the list, and set its next node to be its previous node.
 sol = Solution()
 reversed_head = sol.reverseList(node1)
