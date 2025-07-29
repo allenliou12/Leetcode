@@ -40,20 +40,36 @@ node4.next = node5
 
 class Solution:
     def removeNthFromEnd(self, head, n):
-        current_node = head
-        len = 0
+        # # Two pass
+        # current_node = head
+        # len = 0
 
-        while current_node:
-            len += 1
-            current_node = current_node.next
+        # while current_node:
+        #     len += 1
+        #     current_node = current_node.next
 
-        target = len - n
+        # target = len - n
+        # dummy = ListNode(0)
+        # dummy.next = head
+        # current_node = dummy
+        # for i in range(target):
+        #     current_node = current_node.next
+        # current_node.next = current_node.next.next
+        # return dummy.next
+
+        # One pass two pointer
         dummy = ListNode(0)
         dummy.next = head
-        current_node = dummy
-        for i in range(target):
-            current_node = current_node.next
-        current_node.next = current_node.next.next
+        p1, p2 = dummy, dummy
+
+        for i in range(n+1):
+            p1 = p1.next
+
+        while p1 is not None:
+            p1 = p1.next
+            p2 = p2.next
+
+        p2.next = p2.next.next
         return dummy.next
 
 
